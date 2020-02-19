@@ -12,7 +12,7 @@ public class Slideshow {
 	public Slideshow(List<Photo> p) {
 		this.photos=p;
 	}
-	public void swap(int a, int b) {
+	public boolean swap(int a, int b) {
 		Photo aphoto = photos.get(a);
 		Photo bphoto = photos.get(b);
 		int ascore = aphoto.prev+ aphoto.next;
@@ -30,8 +30,9 @@ public class Slideshow {
 			tmp.setEqualTo(aphoto);
 			photos.get(a).setEqualTo(bphoto);
 			photos.get(b).setEqualTo(tmp);
-			
+			return true;
 		}
+		return false;
 	}
 	public void hillClimb() {
 		for (int i =0; i<photos.size(); i++) {
@@ -47,8 +48,16 @@ public class Slideshow {
 			p.next=p.getScore(photos.get(i+1));
 			p.prev=p.getScore(photos.get(i-1));
 		}
-		for (int i =0; i<10000000; i++) {
-			swap(rand.nextInt(photos.size()-5)+1, rand.nextInt(photos.size()-5)+1);
+		while(true) {
+			int count=0;
+			for (int i =0; i<100; i++) {
+				if(swap(rand.nextInt(photos.size()-5)+1, rand.nextInt(photos.size()-5)+1)) {
+					count++;
+				}
+			}
+			if (count==0) {
+				break;
+			}
 		}
 		int val = 0;
 		for (Photo p : photos) {
@@ -88,10 +97,6 @@ public class Slideshow {
 			}
 		}
 		while (true) {
-			//System.out.println(""+photo.id + " "+photo.maxscore);
-			//.for (int i : photo.pairs) {
-			//	System.out.println("  "+i);
-			//}
 			if (photo.pairs.size()==0) {
 				return currentScore;
 			}else {

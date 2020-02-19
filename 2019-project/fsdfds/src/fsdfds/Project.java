@@ -13,9 +13,9 @@ public class Project {
 	public static void log(String s) {
 		System.out.println(s);
 	}
-	public static void main(String[] args) throws IOException{
+	public static void runProg() throws IOException{
 		log("Started");
-		File f = new File("/home/zack/Downloads/qualification_round_2019.in/d_pet_pictures.txt");
+		File f = new File("/home/zack/Downloads/qualification_round_2019.in/b_lovely_landscapes.txt");
 		BufferedReader reader = new BufferedReader(new FileReader(f));
 		String line = reader.readLine(); // ignore first line;
 		log(line);
@@ -25,6 +25,11 @@ public class Project {
 		while((line=reader.readLine())!=null) {
 			String[] linep = line.split(" ");
 			Photo photo = new Photo();
+			if (linep[0].equals("H")) {
+				photo.isHorz=true;
+			}else {
+				photo.isHorz=false;
+			}
 			for (int i = 2; i<linep.length; i++) {
 				if (tags.containsKey(linep[i])){
 					photo.tags.add(
@@ -37,31 +42,27 @@ public class Project {
 			photo.id=idcounter++;
 			photos.add(photo);
 		}
-		
+		reader.close();
 		Slideshow slideshow = new Slideshow(photos);
-		//slideshow.genPairs();
-		/*for (Photo p : photos) {
-			log("Photo "+p.id);
-			for (Integer i : p.tags) {
-				log("  "+i);
-			}
-			log("  Pairs");
-			for (int j : p.pairs) {
-				log("    Photo: "+j);
-			}
-		}*/
 		slideshow.hillClimb();
+		
 		log("done");
-		/*int max =0; 
-		for (int i =0; i<100000000; i++) {
-			int score = slideshow.randTraverse();
-			if (score>max) {
-				max=score;
-				log(" "+max);
-			}
-		}
-		log("max: "+max);*/
 		log("Ended");
+	}
+	public static void main(String[] args) throws IOException{
+		for (int i=0; i<8; i++) {
+			Thread t = new Thread() {
+				public void run() {
+					try {
+						runProg();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			};
+			t.start();
+		}
+		
 		
 	}
 }
