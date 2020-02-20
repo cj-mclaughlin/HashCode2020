@@ -35,8 +35,8 @@ public class Library {
         int maxValue = 0;
         int currentBook = 0;
         finalOrder = new ArrayList<>();
-        while(daysRemaining!=0 && currentBook+booksPerDay<books.size()){
-            for(int i=0;i<booksPerDay;i++){
+        while(daysRemaining!=0 && currentBook<books.size()){
+            for(int i=0;i<booksPerDay&&currentBook+booksPerDay<books.size();i++){
                 if(!toBeScanned.contains(books.get(currentBook+i))){
                     maxValue += globalBooks.get(books.get(currentBook+i));
                     finalOrder.add(currentBook+i);
