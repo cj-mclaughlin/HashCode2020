@@ -1,14 +1,17 @@
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class InputParser {
     public int numBooks;
     public int numLibraries;
     public int numDays;
-    public HashMap<Integer, Book> books;
-    public ArrayList<Library> libraries;
+    public Map<Integer, Book> books;
+    public List<Library> libraries;
 
     public InputParser() {
         books = new HashMap<>();

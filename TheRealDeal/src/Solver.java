@@ -17,7 +17,7 @@ public class Solver {
 		for (int day=0; day<totalDays; ) {
 			Library l = findMaxScoringLibrary(totalDays-day);
 			toBeScanned.addAll(l.start());
-			days+=l.signupTime;
+			day+=l.signupTime;
 		}
 	}
 	public Library findMaxScoringLibrary(int daysLeft) {

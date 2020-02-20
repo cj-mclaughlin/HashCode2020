@@ -1,12 +1,11 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Library {
     public int id;
-    public ArrayList<Integer> books;
+    public List<Integer> books;
     public int booksPerDay;
     public int signupTime;
     public boolean signedUp;
@@ -24,7 +23,7 @@ public class Library {
 
     }
 
-    public int extractValue(Set<Integer> toBeScanned,HashMap<Integer,Integer> globalBooks, int days){
+    public int extractValue(Set<Integer> toBeScanned,Map<Integer,Integer> globalBooks, int days){
         int daysRemaining = days - signupTime;
         int maxValue = 0;
         int currentBook = 0;
