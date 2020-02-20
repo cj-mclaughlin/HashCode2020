@@ -1,22 +1,23 @@
-import java.util.List;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.io.IOException;
+import java.util.*;
 
 public class Solver {
 
 	Set<Integer> toBeScanned = new HashSet<>();
 	Map<Integer, Integer> globalVals;
 	List<Library> libraries;
+	List<Library> finalLibraries;
 	int totalPoints=0;
 	public Solver(List<Library> libs, Map<Integer, Integer> books) {
 		this.globalVals=books;
 		this.libraries=libs;
 	}
 	
-	public void runSolution(int totalDays) {
+	public void runSolution(int totalDays) throws IOException {
+		finalLibraries = new ArrayList<Library>();
 		for (int day=0; day<totalDays; ) {
 			Library l = findMaxScoringLibrary(totalDays-day);
+			finalLibraries.add(l);
 			libraries.remove(l);
 			System.out.println("Day "+day+" doing library "+l.id);
 			System.out.println("NumBooks: "+l.books.size());
@@ -26,6 +27,8 @@ public class Solver {
 			totalPoints+=l.finalOrderScore;
 			day+=l.signupTime;
 		}
+		OutputWriter output = new OutputWriter(finalLibraries);
+		output.writeOutput("test.txt");
 	}
 	public Library findMaxScoringLibrary(int daysLeft) {
 		int maxScore = -1;
