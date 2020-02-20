@@ -24,7 +24,7 @@ public class Solution {
 	}
 	public static int run(String fileappend) throws IOException {
 		InputParser parser = new InputParser();
-        String filename = "/home/zack/Downloads/"+fileappend;
+        String filename = fileappend;
         parser.parseInput(filename);
         System.out.println(parser.numBooks);
         System.out.println(parser.numLibraries);
