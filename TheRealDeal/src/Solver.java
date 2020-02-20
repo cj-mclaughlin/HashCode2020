@@ -42,7 +42,7 @@ public class Solver {
                 Library maxLibrary = null;
 
                 for (Library l : libraries) {
-                        int val = l.extractValue(toBeScanned, globalVals, daysLeft)-l.signupTime;
+                        int val = l.extractValue(toBeScanned, globalVals, daysLeft)-l.signupTime*5;
                         if (val>maxScore) {
                                 maxScore=val;
                                 maxLibrary = l;
