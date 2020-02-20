@@ -12,17 +12,17 @@ public class Library {
     public boolean signedUp;
 
     public Library(int id, int booksPerDay, int signupTime) {
-        this.books = new ArrayList<Integer>();
+        this.books = new ArrayList<>();
         this.id = id;
         this.booksPerDay = booksPerDay;
         this.signupTime = signupTime;
         this.signedUp = false;
     }
 
-    public void addBook(Integer b) {
-        books.add(b);
-    }
+    public void addBook(int bookId) {
+        books.add(bookId);
 
+    }
 
     public int extractValue(Set<Integer> toBeScanned,HashMap<Integer,Integer> globalBooks, int days){
         int daysRemaining = days - signupTime;
