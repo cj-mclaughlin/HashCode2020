@@ -43,7 +43,7 @@ public class OutputWriter {
     public String libraryOutput(Library library) {
         int id = library.id;
 
-        List<Integer> booksScanned = library.finalOrder; // TODO replace when method implemented in library
+        List<Integer> booksScanned = library.finalOrder;
 
 //        // example list
 //        List<Integer> booksScanned = new ArrayList<>();
