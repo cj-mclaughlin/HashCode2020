@@ -8,20 +8,20 @@ public class Solution {
 
 		//a= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/a_example.txt");
 		b= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/b_read_on.txt");
-		//c= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/c_incunabula.txt");
-		//d= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/d_tough_choices.txt");
-		//e= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/e_so_many_books.txt");
-		//f= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/f_libraries_of_the_world.txt");
+		c= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/c_incunabula.txt");
+		d= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/d_tough_choices.txt");
+		e= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/e_so_many_books.txt");
+		f= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/f_libraries_of_the_world.txt");
 
 		//System.out.println("a "+a);
-//		System.out.println("b "+b);
-//		System.out.println("c "+c);
-//		System.out.println("d "+d);
-//		System.out.println("e "+e);
-//		System.out.println("f "+f);
+		System.out.println("b "+b);
+		System.out.println("c "+c);
+		System.out.println("d "+d);
+		System.out.println("e "+e);
+		System.out.println("f "+f);
 
-//		int total = b+c+d+e+f;
-//		System.out.println("Total "+total);
+		int total = b+c+d+e+f;
+		System.out.println("Total "+total);
 
 		System.out.println("Ended");
 	}

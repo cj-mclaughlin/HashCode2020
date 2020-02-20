@@ -41,9 +41,8 @@ public class Library {
         while(daysRemaining!=0 && currentBook<books.size()){
                 if(!toBeScanned.contains(books.get(currentBook))){
                     maxValue += globalBooks.get(books.get(currentBook));
-                    finalOrder.add(currentBook);
+                    finalOrder.add(books.get(currentBook));
                     daysRemaining--;
-                    currentBook++;
                 }
             currentBook++;
         }

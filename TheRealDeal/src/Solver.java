@@ -22,7 +22,10 @@ public class Solver {
         public void runSolution(int totalDays) {
                 for (int day=0; day<totalDays; ) {
                         Library l = findMaxScoringLibrary(totalDays-day);
+
+                        usedLibraries.add(l);
                         System.out.println("Day "+day+" doing library "+l.id);
+
                         System.out.println("NumBooks: "+l.books.size());
                         System.out.println("SignupTime: "+l.signupTime);
                         System.out.println("LibraryScore: "+l.finalOrderScore);
@@ -31,7 +34,7 @@ public class Solver {
                         totalPoints+=l.finalOrderScore;
                         day+=l.signupTime;
                         libraries.remove(l);
-                        usedLibraries.add(l);
+
                 }
         }
 
