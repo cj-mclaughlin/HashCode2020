@@ -10,6 +10,7 @@ public class Solver {
         Set<Integer> toBeScanned = new HashSet<>();
         Map<Integer, Integer> globalVals;
         List<Library> libraries;
+        
         int totalPoints=0;
         public Solver(List<Library> libs, Map<Integer, Integer> books) {
                 this.globalVals=books;
@@ -42,7 +43,8 @@ public class Solver {
                 Library maxLibrary = null;
 
                 for (Library l : libraries) {
-                        int val = l.extractValue(toBeScanned, globalVals, daysLeft)-l.signupTime*5;
+                        int val = l.extractValue(toBeScanned, globalVals, daysLeft)-l.signupTime*l.signupTime*l.signupTime
+                        		+ 100/l.booksPerDay ;
                         if (val>maxScore) {
                                 maxScore=val;
                                 maxLibrary = l;

@@ -33,7 +33,7 @@ public class Library {
 
     public int extractValue(Set<Integer> toBeScanned,Map<Integer,Integer> globalBooks, int days){
         long daysRemaining = days - signupTime;
-       // daysRemaining*=booksPerDay;
+        daysRemaining*=booksPerDay;
         daysRemaining = Math.max(daysRemaining, 0);
         int maxValue = 0;
         int currentBook = 0;
