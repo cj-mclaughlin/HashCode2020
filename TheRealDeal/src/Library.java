@@ -4,6 +4,7 @@ public class Library {
     public int id;
     public List<Integer> books;
     public List<Integer> finalOrder;
+    public Integer finalOrderScore; //this is fucking ugly
     public int booksPerDay;
     public int signupTime;
     public boolean signedUp;
@@ -43,6 +44,7 @@ public class Library {
             }
             currentBook++;
         }
+        finalOrderScore = maxValue;
         return maxValue;
     }
 }
