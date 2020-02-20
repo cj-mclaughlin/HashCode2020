@@ -10,7 +10,7 @@ public class InputParser {
     public int numBooks;
     public int numLibraries;
     public int numDays;
-    public Map<Integer, Book> books;
+    public Map<Integer, Integer> books;
     public List<Library> libraries;
 
     public InputParser() {
@@ -39,8 +39,7 @@ public class InputParser {
 
         // books
         for (int i=0; i<numBooks; i++) {
-            Book currentBook = new Book(i, scanner.nextInt());
-            books.put(i, currentBook);
+            books.put(i, scanner.nextInt());
         }
 
         // library sections

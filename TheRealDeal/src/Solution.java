@@ -10,6 +10,12 @@ public class Solution {
         System.out.println(parser.numBooks);
         System.out.println(parser.numLibraries);
         System.out.println(parser.numDays);
+        for (Library l : parser.libraries) {
+        	l.sortBooks(parser.books);
+        }
+        Solver solver = new Solver(parser.libraries, parser.books);
+        solver.runSolution(parser.numDays);
+        System.out.println("Final Score: "+solver.totalPoints);
 		System.out.println("Ended");
 	}
 }
