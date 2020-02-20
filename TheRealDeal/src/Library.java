@@ -32,18 +32,18 @@ public class Library {
 
     public int extractValue(Set<Integer> toBeScanned,Map<Integer,Integer> globalBooks, int days){
         int daysRemaining = days - signupTime;
+        daysRemaining*=booksPerDay;
         int maxValue = 0;
         int currentBook = 0;
         finalOrder = new ArrayList<>();
         while(daysRemaining!=0 && currentBook<books.size()){
-            for(int i=0;i<booksPerDay&&currentBook+booksPerDay<books.size();i++){
-                if(!toBeScanned.contains(books.get(currentBook+i))){
-                    maxValue += globalBooks.get(books.get(currentBook+i));
-                    finalOrder.add(currentBook+i);
+                if(!toBeScanned.contains(books.get(currentBook))){
+                    maxValue += globalBooks.get(books.get(currentBook));
+                    finalOrder.add(currentBook);
                     daysRemaining--;
                     currentBook += booksPerDay;
                 }
-            }
+            
             currentBook += booksPerDay;
         }
         finalOrderScore = maxValue;

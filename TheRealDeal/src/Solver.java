@@ -21,6 +21,7 @@ public class Solver {
 			System.out.println("Day "+day+" doing library "+l.id);
 			System.out.println("NumBooks: "+l.books.size());
 			System.out.println("SignupTime: "+l.signupTime);
+			System.out.println("LibraryScore: "+l.finalOrderScore);
 			toBeScanned.addAll(l.finalOrder);
 			totalPoints+=l.finalOrderScore;
 			day+=l.signupTime;
