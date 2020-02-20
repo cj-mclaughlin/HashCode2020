@@ -5,6 +5,7 @@ public class Solution {
 	static int a,b,c,d,e,f = 0;
 	public static void main(String[] args) throws IOException {
 		System.out.println("Hello Google!");
+
 		//a= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/a_example.txt");
 		b= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/b_read_on.txt");
 		//c= run("/home/connor/Documents/HashCode2020/TheRealDeal/src/c_incunabula.txt");
