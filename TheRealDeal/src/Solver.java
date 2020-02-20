@@ -1,16 +1,12 @@
-import java.util.List;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Solver {
 
         Set<Integer> toBeScanned = new HashSet<>();
         Map<Integer, Integer> globalVals;
         List<Library> libraries;
-        
+        public List<Library> usedLibraries = new ArrayList<>();
+
         int totalPoints=0;
         public Solver(List<Library> libs, Map<Integer, Integer> books) {
                 this.globalVals=books;
@@ -35,9 +31,10 @@ public class Solver {
                         totalPoints+=l.finalOrderScore;
                         day+=l.signupTime;
                         libraries.remove(l);
-
+                        usedLibraries.add(l);
                 }
         }
+
         public Library findMaxScoringLibrary(int daysLeft) {
                 int maxScore = Integer.MIN_VALUE;
                 Library maxLibrary = null;
