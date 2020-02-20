@@ -10,7 +10,7 @@ public class Library {
     public boolean signedUp;
 
     public Library(int id, int booksPerDay, int signupTime) {
-        this.books = new ArrayList<>(); //have this be sorted when instantiated
+        this.books = new ArrayList<>();
         this.id = id;
         this.booksPerDay = booksPerDay;
         this.signupTime = signupTime;
@@ -35,14 +35,16 @@ public class Library {
         int maxValue = 0;
         int currentBook = 0;
         finalOrder = new ArrayList<>();
-        while(daysRemaining!=0 && currentBook<books.size()){
-            if(!toBeScanned.contains(books.get(currentBook))){
-                maxValue += globalBooks.get(books.get(currentBook));
-                finalOrder.add(currentBook);
-                daysRemaining--;
-                currentBook++;
+        while(daysRemaining!=0 && currentBook+booksPerDay<books.size()){
+            for(int i=0;i<booksPerDay;i++){
+                if(!toBeScanned.contains(books.get(currentBook+i))){
+                    maxValue += globalBooks.get(books.get(currentBook+i));
+                    finalOrder.add(currentBook+i);
+                    daysRemaining--;
+                    currentBook += booksPerDay;
+                }
             }
-            currentBook++;
+            currentBook += booksPerDay;
         }
         finalOrderScore = maxValue;
         return maxValue;
