@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Library {
-    public int id;
+    public int id=0;
     public List<Integer> books;
     public List<Integer> finalOrder;
     public Integer finalOrderScore; //this is fucking ugly
@@ -28,11 +28,13 @@ public class Library {
                 return globalBooks.get(o1).compareTo(globalBooks.get(o2));
             }
         });
+        Collections.reverse(books);
     }
 
     public int extractValue(Set<Integer> toBeScanned,Map<Integer,Integer> globalBooks, int days){
-        int daysRemaining = days - signupTime;
-        daysRemaining*=booksPerDay;
+        long daysRemaining = days - signupTime;
+       // daysRemaining*=booksPerDay;
+        daysRemaining = Math.max(daysRemaining, 0);
         int maxValue = 0;
         int currentBook = 0;
         finalOrder = new ArrayList<>();
@@ -41,10 +43,9 @@ public class Library {
                     maxValue += globalBooks.get(books.get(currentBook));
                     finalOrder.add(currentBook);
                     daysRemaining--;
-                    currentBook += booksPerDay;
+                    currentBook++;
                 }
-            
-            currentBook += booksPerDay;
+            currentBook++;
         }
         finalOrderScore = maxValue;
         return maxValue;
